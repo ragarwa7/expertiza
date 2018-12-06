@@ -20,11 +20,9 @@ class User < ActiveRecord::Base
   attr_accessor :anonymous_mode
   attr_accessible :name,
                   :crypted_password,
-                  :role_id,
                   :password_salt,
                   :fullname,
                   :email,
-                  :parent_id,
                   :private_by_default,
                   :mru_directory_path,
                   :email_on_review,
@@ -38,9 +36,12 @@ class User < ActiveRecord::Base
                   :timezonepref,
                   :public_key,
                   :copy_of_emails,
-                  :institution_id,
                   :introduction,
                   :self_introduction
+
+  attr_protected :role_id,
+                 :parent_id,
+                 :institution_id
 
   validates :name, presence: true
   validates :name, uniqueness: true
