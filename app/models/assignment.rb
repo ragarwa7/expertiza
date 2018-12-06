@@ -11,11 +11,9 @@ class Assignment < ActiveRecord::Base
                   :name,
                   :directory_path,
                   :require_quiz,
-                  :course_id,
                   :max_team_size,
                   :valid_num_review,
                   :staggered_deadline,
-                  :instructor_id,
                   :review_assignment_strategy,
                   :review_topic_threshold,
                   :max_reviews_per_submission,
@@ -43,6 +41,10 @@ class Assignment < ActiveRecord::Base
                   :require_quiz,
                   :microtask,
                   :allow_suggestions
+
+
+  attr_protected :course_id,
+                 :instructor_id
 
 
 
