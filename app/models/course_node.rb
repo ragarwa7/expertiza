@@ -1,8 +1,8 @@
 class CourseNode < Node
   belongs_to :course, class_name: "Course", foreign_key: "node_object_id"
   belongs_to :node_object, class_name: "Course", foreign_key: "node_object_id"
-  attr_accessible :parent_id, :node_object_id, :type
-
+  attr_accessible :type
+  attr_protected :parent_id, :node_object_id
   # Returns the table in which to locate Courses
   def self.table
     "courses"
