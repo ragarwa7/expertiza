@@ -18,8 +18,6 @@ class Participant < ActiveRecord::Base
   delegate :stage_deadline, to: :assignment
   attr_accessible :can_submit,
                   :can_review,
-                  :user_id,
-                  :parent_id,
                   :submitted_at,
                   :permission_granted,
                   :penalty_accumulated,
@@ -30,6 +28,8 @@ class Participant < ActiveRecord::Base
                   :digital_signature,
                   :duty,
                   :can_take_quiz
+  attr_protected :user_id,
+                 :parent_id
 
   PARTICIPANT_TYPES = %w[Course Assignment].freeze
 
