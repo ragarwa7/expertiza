@@ -4,10 +4,11 @@ class SystemSettings < ActiveRecord::Base
   attr_accessor :public_role, :default_markup_style
   attr_accessor :site_default_page, :not_found_page, :permission_denied_page,
                 :session_expired_page
-  attr_accessible :id,:site_name, :site_subtitle, :footer_message, :public_role_id,
-                                          :session_timeout, :default_markup_style_id, :site_default_page_id,
-                                          :not_found_page_id, :permission_denied_page_id, :session_expired_page_id,
+  attr_accessible :id,:site_name, :site_subtitle, :footer_message,
+                                          :session_timeout,
                                           :menu_depth
+  attr_protected :public_role_id, :default_markup_style_id, :site_default_page_id,
+                 :not_found_page_id, :permission_denied_page_id, :session_expired_page_id
 
   def public_role
     @public_role ||= Role.find(self.public_role_id)
