@@ -7,8 +7,9 @@ class SignUpTopic < ActiveRecord::Base
 
   has_paper_trail
 
-  attr_accessible :topic_identifier, :topic_name, :assignment_id, :max_choosers,
+  attr_accessible :topic_identifier, :topic_name, :max_choosers,
                   :category, :description, :link, :micropayment
+  attr_protected :assignment_id
 
   # the below relations have been added to make it consistent with the database schema
   validates :topic_name, :assignment_id, :max_choosers, presence: true
