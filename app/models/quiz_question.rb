@@ -1,6 +1,7 @@
 class QuizQuestion < Question
-  attr_accessible :id, :txt, :weight, :questionnaire_id, :seq, :size,
+  attr_accessible :id, :txt, :weight, :seq, :size,
                   :alternatives, :break_before, :max_label, :min_label, :questionnaire, :type
+  attr_protected :questionnaire_id
 
   has_many :quiz_question_choices, class_name: 'QuizQuestionChoice', foreign_key: 'question_id'
   def edit; end
