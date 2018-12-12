@@ -6,7 +6,8 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   belongs_to :response
 
-  attr_accessible :answer, :question, :comments, :response_id, :question_id
+  attr_accessible :answer, :question, :comments
+  attr_protected  :response_id, :question_id
 
   # Computes the total score for a *list of assessments*
   # parameters

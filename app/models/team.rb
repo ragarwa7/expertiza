@@ -6,7 +6,8 @@ class Team < ActiveRecord::Base
   has_many :signed_up_teams, dependent: :destroy
   has_paper_trail
 
-  attr_accessible :name, :parent_id, :type
+  attr_accessible :name, :type
+  attr_protected :parent_id
 
   # Get the participants of the given team
   def participants

@@ -7,7 +7,9 @@ class AssignmentTeam < Team
   has_many :review_response_maps, foreign_key: 'reviewee_id'
   has_many :responses, through: :review_response_maps, foreign_key: 'map_id'
 
-  attr_accessible :name, :parent_id, :type, :name, :directory_path, :require_quiz, :course_id, :max_team_size
+  attr_accessible :type, :name, :directory_path, :require_quiz, :max_team_size
+
+  attr_protected :parent_id, :course_id
 
   # START of contributor methods, shared with AssignmentParticipant
 
